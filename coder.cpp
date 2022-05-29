@@ -67,9 +67,7 @@ void coder(const char* file_name = "input.txt", const char* encoded_name = "outp
     sort(table.begin(), table.end(), comp());//Сортировка таблицы
     cout << "------Alphabet------" << endl;
     for (auto pair: table)
-    {
         cout << pair.first << " " << pair.second << endl;
-    }
     unsigned int *intervals = new unsigned int[table.size() + 2];//Формирование таблицы целочисленных интервалов
     intervals[0] = 0;
     intervals[1] = 1;
@@ -81,9 +79,7 @@ void coder(const char* file_name = "input.txt", const char* encoded_name = "outp
         intervals[i + 2] = b;
     }
     if (intervals[table.size()] > (1 << 13))
-    {
         throw std::invalid_argument("Error, too long count.");
-    }
     input = fopen(file_name, "rb");
     FILE *output = fopen(encoded_name, "wb");
     char all_letters = table.size();//Запоминаем количество используемых симолов, необходимо для шапки
